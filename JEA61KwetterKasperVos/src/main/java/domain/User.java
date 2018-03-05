@@ -116,4 +116,8 @@ public class User {
     public void setKweets(List<Kweet> k) {
         kweets = k;
     }
+    
+    public void mentionUser() {
+        
+    }
 }
