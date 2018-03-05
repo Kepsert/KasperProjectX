@@ -33,6 +33,14 @@ public class User {
         kweets = new ArrayList();
         followingList = new ArrayList();
     }
+    
+    public User(String name, String username, String biography) {
+        this.name = name;
+        this.username = username;
+        this.biography = biography;
+        kweets = new ArrayList();
+        followingList = new ArrayList();
+    }
 
     public Long getId() {
         return id;

@@ -23,6 +23,8 @@ public class UserTest {
 
     private User user1;
     private User user2;
+    private User user3;
+    private String testBio = "This is a test biography";
 
     public UserTest() {
     }
@@ -39,6 +41,7 @@ public class UserTest {
     public void setUp() {
         user1 = new User("Kasper", "Kasper");
         user2 = new User("Test", "Test");
+        user3 = new User("TestBio", "TestBio", testBio);
     }
 
     @After
@@ -144,5 +147,20 @@ public class UserTest {
         System.out.println("Unlike tweet and see if it's unliked");
         k.UnlikeTweet(user2);
         assertEquals(0, k.getLikeList().size());
+    }
+    
+    @Test
+    public void testGetBiography() {
+        System.out.println("Test getBiography");
+        
+        assertEquals(user3.getBiography(), testBio);
+    }
+    
+    @Test
+    public void testSetBiography() {
+        System.out.println("Test setBiography");
+        
+        user1.setBiography(testBio);
+        assertEquals(user1.getBiography(), testBio);
     }
 }
