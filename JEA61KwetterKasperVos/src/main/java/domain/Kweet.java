@@ -5,6 +5,7 @@
  */
 package domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,6 +20,7 @@ public class Kweet {
     private User user;
 
     public Kweet() {
+        likeList = new ArrayList();
     }
 
     public Long getId() {
@@ -53,11 +55,11 @@ public class Kweet {
         this.user = user;
     }
     
-    private void LikeTweet(User user) {
+    public void LikeTweet(User user) {
         likeList.add(user);
     }
     
-    private void UnlikeTweet(User user) {
+    public void UnlikeTweet(User user) {
         likeList.remove(user);
     }
 }

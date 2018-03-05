@@ -107,4 +107,42 @@ public class UserTest {
         user2.unfollowUser(user1);
         assertEquals(0, user2.getFollowingList().size());
     }
+    
+    @Test
+    public void testLikeKweet() {
+        Kweet k = new Kweet();
+        k.setMessage("Test Kweet");
+        user1.addKweet(k);
+        
+        System.out.println("Create Tweet and see if it's added properly");
+        List<Kweet> expResult = new ArrayList();
+        expResult.add(k);
+        List<Kweet> result = user1.getKweets();
+        assertEquals(expResult, result);
+        
+        System.out.println("Like tweet and see if it is liked");
+        k.LikeTweet(user2);
+        assertEquals(1, k.getLikeList().size());
+    }
+    
+    @Test
+    public void testUnlikeKweet() {
+        Kweet k = new Kweet();
+        k.setMessage("Test Kweet");
+        user1.addKweet(k);
+        
+        System.out.println("Create Tweet and see if it's added properly");
+        List<Kweet> expResult = new ArrayList();
+        expResult.add(k);
+        List<Kweet> result = user1.getKweets();
+        assertEquals(expResult, result);
+        
+        System.out.println("Unlike tweet and see if it is liked");
+        k.LikeTweet(user2);
+        assertEquals(1, k.getLikeList().size());
+        
+        System.out.println("Unlike tweet and see if it's unliked");
+        k.UnlikeTweet(user2);
+        assertEquals(0, k.getLikeList().size());
+    }
 }
