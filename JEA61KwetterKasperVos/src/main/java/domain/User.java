@@ -5,6 +5,7 @@
  */
 package domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,7 +23,6 @@ public class User {
     private List<User> followingList;
     
     private List<Kweet> kweets;
-    private Kweet k;
 
     public User() {
     }
@@ -30,6 +30,8 @@ public class User {
     public User(String name, String username) {
         this.name = name;
         this.username = username;
+        kweets = new ArrayList();
+        followingList = new ArrayList();
     }
 
     public Long getId() {
@@ -80,6 +82,14 @@ public class User {
         this.followingList = followingList;
     }
     
+    public void followUser(User u) {
+        followingList.add(u);
+    }
+    
+    public void unfollowUser(User u) {
+        followingList.remove(u);
+    }
+    
     public void addKweet(Kweet k)
     {
         kweets.add(k);
@@ -88,5 +98,14 @@ public class User {
     public void removeKweet(Kweet k)
     {
         kweets.remove(k);
+    }
+    
+    public List<Kweet> getKweets()
+    {
+        return kweets;
+    }
+    
+    public void setKweets(List<Kweet> k) {
+        kweets = k;
     }
 }
